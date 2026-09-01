@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lucky Lop | Links</title>
+<meta name="description" content="Adopt, foster, donate or volunteer with The Lucky Lop Rabbit Rescue, South Yorkshire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Permanent+Marker&family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky-top: #3aa8e0;
+    --sky-bottom: #8fd6f5;
+    --red: #ee4630;
+    --yellow: #ffd400;
+    --ink: #111111;
+    --grass-dark: #2f7d2a;
+    --grass: #59a83f;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { min-height: 100%; }
+
+  body {
+    font-family: 'Baloo 2', sans-serif;
+    color: var(--ink);
+    background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bottom) 68%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+    padding: 40px 18px 0;
+  }
+
+  /* ---- decorative clouds ---- */
+  .puff { position: absolute; background: #fff; border-radius: 50%; opacity: 0.85; }
+  .cloud { position: absolute; z-index: 0; }
+  .cloud .puff:nth-child(1) { width: 70px; height: 70px; left: 0; top: 20px; }
+  .cloud .puff:nth-child(2) { width: 100px; height: 100px; left: 45px; top: 0; }
+  .cloud .puff:nth-child(3) { width: 70px; height: 70px; left: 120px; top: 22px; }
+  .cloud .puff:nth-child(4) { width: 130px; height: 40px; left: 15px; top: 55px; border-radius: 30px; }
+
+  .cloud.c1 { top: 6%;  left: -40px; transform: scale(0.8); }
+  .cloud.c2 { top: 16%; right: -50px; transform: scale(0.6); opacity: 0.8; }
+  .cloud.c3 { top: 46%; left: -60px; transform: scale(0.5); opacity: 0.7; }
+
+  /* ---- grass footer ---- */
+  .grass {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    height: 90px;
+    background: var(--grass);
+    z-index: 0;
+    clip-path: polygon(0% 40%, 5% 30%, 12% 42%, 20% 25%, 30% 38%, 40% 22%, 50% 36%, 60% 20%, 70% 34%, 80% 24%, 90% 38%, 100% 26%, 100% 100%, 0% 100%);
+  }
+  .grass::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: var(--grass-dark);
+    clip-path: polygon(0% 55%, 8% 46%, 16% 58%, 26% 44%, 36% 56%, 46% 42%, 56% 55%, 66% 40%, 76% 54%, 86% 44%, 96% 57%, 100% 48%, 100% 100%, 0% 100%);
+  }
+  .grass .flower {
+    position: absolute;
+    bottom: 30px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+
+  /* ---- content ---- */
+  .page {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 440px;
+    text-align: center;
+    padding-bottom: 130px;
+  }
+
+  .logo-img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: 0 auto 4px;
+    display: block;
+  }
+
+  .badge {
+    display: inline-block;
+    background: #fff;
+    border: 3px solid var(--ink);
+    border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
+    padding: 8px 16px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 6px 0 22px;
+    transform: rotate(-2deg);
+  }
+
+  .tagline {
+    background: rgba(255,255,255,0.94);
+    border: 3px solid var(--ink);
+    border-radius: 24px;
+    padding: 16px 18px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    color: var(--ink);
+    margin-bottom: 30px;
+  }
+
+  /* ---- link bubbles ---- */
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .bubble {
+    display: block;
+    text-decoration: none;
+    color: var(--ink);
+    background: #fff;
+    border: 3px solid var(--ink);
+    border-radius: 42% 58% 55% 45% / 45% 42% 58% 55%;
+    padding: 18px 22px;
+    font-weight: 800;
+    font-size: 1.02rem;
+    box-shadow: 4px 5px 0 rgba(17,17,17,0.9);
+    transition: transform 140ms ease, box-shadow 140ms ease;
+  }
+
+  .links a:nth-child(2n) { --tilt: -1.4deg; }
+  .links a:nth-child(2n+1) { --tilt: 1.4deg; }
+  .bubble { transform: rotate(var(--tilt, 1deg)); }
+
+  .bubble:hover, .bubble:focus-visible {
+    transform: rotate(0deg) translateY(-3px);
+    box-shadow: 6px 8px 0 rgba(17,17,17,0.9);
+  }
+  .bubble:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+
+  .bubble.carrot {
+    background: #ff8a3d;
+    border-radius: 8px 60px 8px 60px;
+    color: var(--ink);
+  }
+  .bubble.carrot::before { content: "🥕 "; }
+
+  footer {
+    margin-top: 26px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: #0a3350;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bubble { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="cloud c1"><div class="puff"></div><div class="puff"></div><div class="puff"></div><div class="puff"></div></div>
+  <div class="cloud c2"><div class="puff"></div><div class="puff"></div><div class="puff"></div><div class="puff"></div></div>
+  <div class="cloud c3"><div class="puff"></div><div class="puff"></div><div class="puff"></div><div class="puff"></div></div>
+
+  <div class="page">
+
+    <!-- Replace "logo.png" below with your own image file (e.g. logo.png, logo.jpg) placed in the same folder as this page -->
+    <img class="logo-img" src="logo.png" alt="The Lucky Lop Rabbit Rescue">
+
+    <div class="badge">South Yorkshire's<br>independent rabbit rescue</div>
+
+    <p class="tagline">We take in unwanted, neglected and vulnerable rabbits, provide care and assessment, and help them find suitable forever homes.</p>
+
+    <nav class="links" aria-label="The Lucky Lop links">
+      <a href="https://www.pets4homes.co.uk//breeder/the-lucky-lop-rabbit-rescue-3e740dde-a907-4ed1-9756-8e5b2ba4fdf7/" target="_blank" rel="noopener"><div class="bubble">🐰 Rabbits looking for a home</div></a>
+      <a href="https://donate.stripe.com/4gMbJ13zq7YRgp74u54wM00" target="_blank" rel="noopener"><div class="bubble carrot">Donate to the rescue</div></a>
+      <a href="https://www.amazon.co.uk/hz/wishlist/ls/2R2NPPCBCPFDR?ref_=wl_share" target="_blank" rel="noopener"><div class="bubble">🎁 Hay, toys &amp; supplies wishlist</div></a>
+      <a href="mailto:theluckyloprescue@gmail.com"><div class="bubble">✉️ Send us an email</div></a>
+    </nav>
+
+    <footer>The Lucky Lop Rabbit Rescue &middot; South Yorkshire</footer>
+
+  </div>
+
+  <div class="grass" aria-hidden="true">
+    <div class="flower" style="left:8%; background:#ffd400;"></div>
+    <div class="flower" style="left:22%; background:#ffffff;"></div>
+    <div class="flower" style="left:38%; background:#ff8fb0;"></div>
+    <div class="flower" style="left:55%; background:#ffd400;"></div>
+    <div class="flower" style="left:70%; background:#ffffff;"></div>
+    <div class="flower" style="left:86%; background:#ff8fb0;"></div>
+  </div>
+
+</body>
+</html>
+
