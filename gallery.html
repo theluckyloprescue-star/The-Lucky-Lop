@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | The Lucky Lop Rabbit Rescue</title>
+<meta name="description" content="Photos of the rabbits, events and rescue days at The Lucky Lop Rabbit Rescue, Sheffield.">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Permanent+Marker&family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="cloud c1"><div class="puff"></div><div class="puff"></div><div class="puff"></div><div class="puff"></div></div>
+<div class="cloud c2"><div class="puff"></div><div class="puff"></div><div class="puff"></div><div class="puff"></div></div>
+<div class="cloud c3"><div class="puff"></div><div class="puff"></div><div class="puff"></div><div class="puff"></div></div>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="nav-brand">
+      <img src="images/logo.png" alt="The Lucky Lop Rabbit Rescue logo">
+      <span>The Lucky Lop</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="rabbits.html">Rabbits</a>
+      <a href="gallery.html" class="current">Gallery</a>
+      <a href="blog.html">Blog</a>
+      <a href="support.html">Support Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page-wrap">
+
+  <h1 class="comic-heading fade-in" style="margin-top:28px;">Gallery</h1>
+  <p class="section-text narrow" style="text-align:center;">A few of our rabbits, rescue days and events. More photos coming soon!</p>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="rabbits">Rabbits</button>
+    <button class="filter-btn" data-filter="events">Events</button>
+    <button class="filter-btn" data-filter="rescue-days">Rescue Days</button>
+  </div>
+
+  <!--
+    ============================================================
+    EDIT THIS SECTION: Gallery images
+    To add a photo: copy one whole <div class="gallery-item">...</div>
+    block, point the src at your new image in images/gallery/,
+    write a short alt description, and set data-category to
+    "rabbits", "events" or "rescue-days" (or add a new category —
+    just remember to add a matching filter button above).
+    ============================================================
+  -->
+  <div class="gallery-grid">
+    <div class="gallery-item" data-category="rabbits">
+      <img src="images/placeholder.svg" alt="Clover exploring her enclosure">
+    </div>
+    <div class="gallery-item" data-category="rabbits">
+      <img src="images/placeholder.svg" alt="Basil and Poppy bonded together">
+    </div>
+    <div class="gallery-item" data-category="rescue-days">
+      <img src="images/placeholder.svg" alt="Volunteers cleaning out hutches on a rescue day">
+    </div>
+    <div class="gallery-item" data-category="events">
+      <img src="images/placeholder.svg" alt="Our stall at a local fundraising event">
+    </div>
+    <div class="gallery-item" data-category="rabbits">
+      <img src="images/placeholder.svg" alt="Herbert settling into his new enclosure">
+    </div>
+    <div class="gallery-item" data-category="events">
+      <img src="images/placeholder.svg" alt="Fundraising day at Cross Scythes">
+    </div>
+    <div class="gallery-item" data-category="rescue-days">
+      <img src="images/placeholder.svg" alt="A new arrival being health-checked">
+    </div>
+    <div class="gallery-item" data-category="rabbits">
+      <img src="images/placeholder.svg" alt="One of our rabbits enjoying fresh herbs">
+    </div>
+  </div>
+  <!-- END EDIT THIS SECTION -->
+
+</main>
+
+<!-- Lightbox — do not remove, this powers the click-to-enlarge popup -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <button class="lightbox-prev" aria-label="Previous image">&#10094;</button>
+  <button class="lightbox-next" aria-label="Next image">&#10095;</button>
+  <div>
+    <img src="" alt="">
+    <p class="lightbox-caption"></p>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="tel:+447944008688">07944 008688</a>
+    <a href="mailto:theluckyloprescue@gmail.com">theluckyloprescue@gmail.com</a>
+    <a href="https://www.facebook.com/share/1EvQWjbq1e/" target="_blank" rel="noopener">Facebook</a>
+  </div>
+  <p>&copy; <span id="year"></span> The Lucky Lop Rabbit Rescue &middot; Sheffield, South Yorkshire</p>
+</footer>
+
+<div class="grass" aria-hidden="true">
+  <div class="flower" style="left:8%; background:#ffd400;"></div>
+  <div class="flower" style="left:22%; background:#ffffff;"></div>
+  <div class="flower" style="left:38%; background:#ff8fb0;"></div>
+  <div class="flower" style="left:55%; background:#ffd400;"></div>
+  <div class="flower" style="left:70%; background:#ffffff;"></div>
+  <div class="flower" style="left:86%; background:#ff8fb0;"></div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
