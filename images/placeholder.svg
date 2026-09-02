@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#ffd400"/>
+  <rect x="6" y="6" width="388" height="288" fill="none" stroke="#111111" stroke-width="6" rx="14"/>
+  <text x="200" y="150" text-anchor="middle" font-family="Baloo 2, sans-serif" font-weight="800" font-size="26" fill="#111111">Add photo</text>
+  <text x="200" y="180" text-anchor="middle" font-family="Baloo 2, sans-serif" font-weight="600" font-size="15" fill="#111111">theluckylop/images</text>
+</svg>
