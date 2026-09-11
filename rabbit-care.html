@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rabbit Care Guide UK | What Rabbits Eat, Housing, Health & Vaccinations | the lucky lop</title>
+<title>Rabbit Care Guide UK | What Rabbits Eat, Housing, Health &amp; Vaccinations | the lucky lop</title>
 
 <meta name="description" content="The complete UK rabbit care guide from the lucky lop. Learn what rabbits eat, how much space rabbits need, rabbit housing, hay, bonding, behaviour, vaccinations, neutering, flystrike, GI stasis, dental health and when to call a vet.">
 
@@ -14,7 +14,7 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="googlebot" content="index, follow, max-image-preview:large">
 
-<link rel="canonical" href="https://theluckylop.co.uk/rabbit-care">
+<link rel="canonical" href="https://theluckylop.co.uk/rabbit-care.html">
 
 <link rel="icon" href="images/logo.png">
 
@@ -28,7 +28,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Rabbit Care Guide UK | the lucky lop">
 <meta property="og:description" content="What do rabbits eat? How much space do rabbits need? Learn about rabbit diet, housing, health, vaccinations, neutering, bonding and more.">
-<meta property="og:url" content="https://theluckylop.co.uk/rabbit-care">
+<meta property="og:url" content="https://theluckylop.co.uk/rabbit-care.html">
 <meta property="og:site_name" content="the lucky lop rabbit rescue">
 <meta property="og:image" content="https://theluckylop.co.uk/images/logo.png">
 <meta property="og:image:alt" content="the lucky lop rabbit rescue logo">
@@ -39,6 +39,15 @@
 <meta name="twitter:title" content="Rabbit Care Guide UK | the lucky lop">
 <meta name="twitter:description" content="A practical UK rabbit care guide covering diet, housing, health, vaccinations, neutering, bonding and behaviour.">
 <meta name="twitter:image" content="https://theluckylop.co.uk/images/logo.png">
+
+<!--
+  ============================================================
+  DOMAIN NOTE: this page assumes theluckylop.co.uk is your live
+  address. If that's not correct yet (or changes later), do a
+  find-and-replace of "https://theluckylop.co.uk" across this
+  file, including inside the JSON-LD blocks below.
+  ============================================================
+-->
 
 <!-- Structured Data: Organisation -->
 <script type="application/ld+json">
@@ -84,12 +93,13 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://theluckylop.co.uk/rabbit-care"
+    "@id": "https://theluckylop.co.uk/rabbit-care.html"
   },
-  "about": {
-    "@type": "Thing",
-    "name": "Rabbit care"
-  },
+  "about": [
+    { "@type": "Thing", "name": "Rabbit care" },
+    { "@type": "Thing", "name": "Rabbit health" },
+    { "@type": "Thing", "name": "Rabbit diet" }
+  ],
   "inLanguage": "en-GB"
 }
 </script>
@@ -110,7 +120,7 @@
       "@type": "ListItem",
       "position": 2,
       "name": "Rabbit Care",
-      "item": "https://theluckylop.co.uk/rabbit-care"
+      "item": "https://theluckylop.co.uk/rabbit-care.html"
     }
   ]
 }
@@ -289,7 +299,7 @@
     font-size: 1.05rem;
   }
 
-  /* SEARCH QUESTION STRIP */
+  /* SEARCH QUESTION STRIP (now real jump links) */
 
   .question-strip {
     display: flex;
@@ -299,7 +309,7 @@
     margin: 20px 0;
   }
 
-  .question-pill {
+  a.question-pill {
     display: inline-block;
     background: #fff;
     border: 2px solid var(--ink);
@@ -307,6 +317,15 @@
     padding: 7px 12px;
     font-size: .78rem;
     font-weight: 800;
+    text-decoration: none;
+    color: var(--ink);
+    transition: background .15s ease, transform .15s ease;
+  }
+
+  a.question-pill:hover,
+  a.question-pill:focus-visible {
+    background: var(--yellow);
+    transform: translateY(-2px);
   }
 
   /* BIG FACT PANEL */
@@ -328,7 +347,7 @@
     margin-bottom: 3px;
   }
 
-  /* FOOD SEARCH GRID */
+  /* FOOD SEARCH GRID — now interactive disclosure cards */
 
   .food-grid {
     display: grid;
@@ -337,24 +356,56 @@
     margin-top: 18px;
   }
 
-  .food-card {
+  details.food-card {
     background: #fff;
     border: 3px solid var(--ink);
     border-radius: 17px;
-    padding: 13px;
+    padding: 0;
     text-align: center;
     font-weight: 800;
     transition: transform .15s ease;
+    overflow: hidden;
   }
 
-  .food-card:hover {
+  details.food-card:hover {
     transform: translateY(-3px) rotate(-1deg);
   }
+
+  details.food-card summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 13px;
+    user-select: none;
+    position: relative;
+  }
+
+  details.food-card summary::-webkit-details-marker { display: none; }
+
+  details.food-card summary::after {
+    content: '+';
+    display: block;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1rem;
+    color: var(--red);
+    margin-top: 2px;
+  }
+
+  details.food-card[open] summary::after { content: '\2212'; }
+
+  details.food-card[open] summary { background: var(--yellow); }
 
   .food-card .emoji {
     font-size: 1.6rem;
     display: block;
     margin-bottom: 3px;
+  }
+
+  .food-card .food-info {
+    text-align: left;
+    font-weight: 600;
+    font-size: .78rem;
+    line-height: 1.5;
+    padding: 0 13px 14px;
   }
 
   /* FAQ DROPDOWNS */
@@ -402,7 +453,7 @@
   }
 
   .faq-item[open] summary::after {
-    content: '−';
+    content: '\2212';
     transform: rotate(180deg);
   }
 
@@ -416,6 +467,46 @@
   .faq-answer p:last-child {
     margin-bottom: 0;
   }
+
+  /* MAIN SECTION ACCORDIONS — keeps the page short until you want more */
+
+  details.accordion-section {
+    background: #fff;
+    border: 3px solid var(--ink);
+    border-radius: 20px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    box-shadow: 4px 5px 0 rgba(17,17,17,0.85);
+  }
+
+  details.accordion-section > summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 16px 54px 16px 18px;
+    position: relative;
+    user-select: none;
+  }
+
+  details.accordion-section > summary::-webkit-details-marker { display: none; }
+
+  details.accordion-section > summary .comic-heading { margin: 0; }
+
+  details.accordion-section > summary::after {
+    content: '+';
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--red);
+  }
+
+  details.accordion-section[open] > summary::after { content: '\2212'; }
+  details.accordion-section[open] > summary { border-bottom: 3px solid var(--ink); }
+
+  .accordion-body { padding: 18px 18px 22px; }
 
   /* SECTION BADGE */
 
@@ -578,7 +669,8 @@
     This practical <strong>UK rabbit care guide</strong> covers the questions rabbit
     owners ask most — including <strong>what rabbits eat, how much space rabbits need,
     rabbit housing, hay, bonding, behaviour, vaccinations, neutering and common rabbit
-    health problems.</strong>
+    health problems.</strong> Tap any section below to expand it — or jump straight
+    to what you need using the quick links.
   </p>
 
 </header>
@@ -633,17 +725,17 @@
 </div>
 
 
-<!-- QUESTION PILLS -->
+<!-- QUESTION PILLS — now real jump links to the matching section -->
 
 <div class="question-strip" aria-label="Popular rabbit care questions">
 
-  <span class="question-pill">What do rabbits eat?</span>
-  <span class="question-pill">How much space do rabbits need?</span>
-  <span class="question-pill">Can rabbits live alone?</span>
-  <span class="question-pill">Do rabbits need vaccines?</span>
-  <span class="question-pill">Can rabbits eat carrots?</span>
-  <span class="question-pill">What is flystrike?</span>
-  <span class="question-pill">Why has my rabbit stopped eating?</span>
+  <a class="question-pill" href="#diet">What do rabbits eat?</a>
+  <a class="question-pill" href="#housing">How much space do rabbits need?</a>
+  <a class="question-pill" href="#company">Can rabbits live alone?</a>
+  <a class="question-pill" href="#vaccinations">Do rabbits need vaccines?</a>
+  <a class="question-pill" href="#food">Can rabbits eat carrots?</a>
+  <a class="question-pill" href="#health">What is flystrike?</a>
+  <a class="question-pill" href="#vet">Why has my rabbit stopped eating?</a>
 
 </div>
 
@@ -672,13 +764,12 @@
      FIVE WELFARE NEEDS
      ========================================================== -->
 
-<section class="section" id="needs">
-
+<details class="accordion-section" id="needs" open>
+<summary>
   <span class="seo-badge">RABBIT WELFARE UK</span>
-
-  <h2 class="comic-heading">
-    The Five Welfare Needs of Rabbits
-  </h2>
+  <h2 class="comic-heading">The Five Welfare Needs of Rabbits</h2>
+</summary>
+<div class="accordion-body">
 
   <p class="section-text">
     The <strong>Animal Welfare Act 2006</strong> provides the legal framework for
@@ -752,27 +843,27 @@
 
   <p class="source-note">
     Source:
-    <a href="https://www.gov.uk/guidance/animal-welfare"
+    <a href="https://www.pdsa.org.uk/pet-help-and-advice/looking-after-your-pet/all-pets/5-welfare-needs"
        target="_blank"
        rel="noopener noreferrer">
-      GOV.UK — Animal Welfare
+      PDSA — Your Pet's 5 Welfare Needs
     </a>.
   </p>
 
-</section>
+</div>
+</details>
 
 
 <!-- ==========================================================
      HOUSING
      ========================================================== -->
 
-<section class="section" id="housing">
-
+<details class="accordion-section" id="housing">
+<summary>
   <span class="seo-badge">RABBIT HOUSING</span>
-
-  <h2 class="comic-heading">
-    Rabbit Housing: How Much Space Do Rabbits Need?
-  </h2>
+  <h2 class="comic-heading">Rabbit Housing: How Much Space Do Rabbits Need?</h2>
+</summary>
+<div class="accordion-body">
 
   <p class="section-text">
     One of the biggest rabbit-care mistakes is assuming that a traditional
@@ -783,16 +874,16 @@
 
   <div class="fact-panel">
 
-    <span class="big-number">3m × 2m × 1m</span>
+    <span class="big-number">3m &times; 2m &times; 1m</span>
 
     The Rabbit Welfare Association &amp; Fund recommends a single enclosed living
     area of at least <strong>3 metres by 2 metres by 1 metre high</strong> for
     two average-sized rabbits, available continuously.
-    
+
   </div>
 
   <p class="section-text">
-    The important part is the <strong>3m × 2m continuous floor footprint</strong>.
+    The important part is the <strong>3m &times; 2m continuous floor footprint</strong>.
     A second level, platform or connected small hutch does not turn a small
     footprint into an equivalent living area.
   </p>
@@ -822,40 +913,48 @@
   </div>
 
   <p class="source-note">
-    Source:
-    <a href="https://rabbitwelfare.co.uk/welfare-need/space-recommendations/"
+    Sources:
+    <a href="https://rabbitwelfare.co.uk/space-recommendations/"
        target="_blank"
        rel="noopener noreferrer">
       Rabbit Welfare Association &amp; Fund — Space Recommendations
+    </a>
+    and
+    <a href="https://www.pdsa.org.uk/pet-help-and-advice/looking-after-your-pet/rabbits/creating-the-ideal-home-for-your-rabbits"
+       target="_blank"
+       rel="noopener noreferrer">
+      PDSA — Creating the Ideal Home for Your Rabbits
     </a>.
   </p>
 
-</section>
+</div>
+</details>
 
 
 <!-- ==========================================================
      DIET
      ========================================================== -->
 
-<section class="section" id="diet">
-
+<details class="accordion-section" id="diet">
+<summary>
   <span class="seo-badge">WHAT DO RABBITS EAT?</span>
-
-  <h2 class="comic-heading">
-    What Do Rabbits Eat?
-  </h2>
+  <h2 class="comic-heading">What Do Rabbits Eat?</h2>
+</summary>
+<div class="accordion-body">
 
   <p class="section-text">
     A healthy <strong>rabbit diet</strong> is based on fibre. Good-quality
-    <strong>hay and/or grass should make up the main part of a rabbit's diet</strong>,
-    supported by suitable fresh greens and a small measured amount of rabbit nuggets
-    or pellets.
+    <strong>hay and/or grass should make up around 85% of a rabbit's diet</strong>,
+    supported by suitable fresh greens (around 10%) and a small measured amount of
+    rabbit nuggets or pellets (around 5%) — a balance consistently recommended by
+    RWAF and Woodgreen.
   </p>
 
   <p class="section-text">
-    PDSA recommends unlimited hay and/or grass where possible, with at least a bundle
-    at least the size of the rabbit each day as a minimum guide. It also recommends
-    suitable fresh foods, a small amount of nuggets and constant access to fresh water.
+    As a practical everyday guide, PDSA suggests offering at least a bundle of hay
+    the size of your rabbit each day, an adult-sized handful of suitable fresh greens
+    morning and evening, and around a tablespoon of nuggets once daily (or twice
+    daily for rabbits over 3.5kg). Fresh water should always be available.
   </p>
 
   <div class="grid cols-3">
@@ -936,85 +1035,98 @@
 
   <p class="section-text">
     Fresh grass can be excellent for rabbits when introduced safely and gradually.
-    <strong>Never feed freshly cut lawn mower grass.</strong>
+    <strong>Never feed freshly cut lawn mower grass</strong> — cut grass can ferment
+    and heat up quickly, which can upset a rabbit's digestion.
   </p>
 
   <p class="source-note">
-    Source:
+    Sources:
     <a href="https://www.pdsa.org.uk/pet-help-and-advice/looking-after-your-pet/rabbits/feeding-your-rabbits"
        target="_blank"
        rel="noopener noreferrer">
       PDSA — Feeding Your Rabbits
+    </a>,
+    <a href="https://www.pdsa.org.uk/pet-help-and-advice/looking-after-your-pet/rabbits/rabbit-health"
+       target="_blank"
+       rel="noopener noreferrer">
+      PDSA — Keeping Your Rabbit Healthy
+    </a>
+    and
+    <a href="https://woodgreen.org.uk/pet-advice/rabbit/what-to-feed-your-rabbits/"
+       target="_blank"
+       rel="noopener noreferrer">
+      Woodgreen — What to Feed Your Rabbits
     </a>.
   </p>
 
-</section>
+</div>
+</details>
 
 
 <!-- ==========================================================
-     CAN RABBITS EAT
+     CAN RABBITS EAT — now clickable food cards
      ========================================================== -->
 
-<section class="section" id="food">
-
+<details class="accordion-section" id="food">
+<summary>
   <span class="seo-badge">POPULAR RABBIT FOOD QUESTIONS</span>
-
-  <h2 class="comic-heading">
-    Can Rabbits Eat...?
-  </h2>
+  <h2 class="comic-heading">Can Rabbits Eat...?</h2>
+</summary>
+<div class="accordion-body">
 
   <p class="section-text">
     <strong>“Can rabbits eat carrots?”</strong> is one of the questions new rabbit
     owners often ask — but carrots are only one of many foods people wonder about.
+    Tap any food below for a quick answer.
   </p>
 
   <p class="section-text">
     Suitable fresh foods can add variety to a rabbit's diet, but new foods should
-    be introduced gradually. Fruit and other sugary foods are better treated as
-    occasional treats rather than everyday staples.
+    be introduced gradually, one at a time. Fruit and other sugary foods are better
+    treated as occasional treats rather than everyday staples.
   </p>
 
   <div class="food-grid">
 
-    <div class="food-card">
-      <span class="emoji">🥕</span>
-      Carrots
-    </div>
+    <details class="food-card">
+      <summary><span class="emoji">🥕</span>Carrots</summary>
+      <p class="food-info">A root vegetable, higher in natural sugars than hay or leafy greens. Fine as an occasional small treat, but shouldn't be a daily staple.</p>
+    </details>
 
-    <div class="food-card">
-      <span class="emoji">🍎</span>
-      Apples
-    </div>
+    <details class="food-card">
+      <summary><span class="emoji">🍎</span>Apples</summary>
+      <p class="food-info">Offer in small pieces occasionally, as fruit is naturally sugary. Remove any pips and the core first as a general precaution.</p>
+    </details>
 
-    <div class="food-card">
-      <span class="emoji">🥒</span>
-      Cucumber
-    </div>
+    <details class="food-card">
+      <summary><span class="emoji">🥒</span>Cucumber</summary>
+      <p class="food-info">Mostly water with little nutritional value. Fine as an occasional small treat, but not a substitute for hay or leafy greens.</p>
+    </details>
 
-    <div class="food-card">
-      <span class="emoji">🥬</span>
-      Leafy greens
-    </div>
+    <details class="food-card">
+      <summary><span class="emoji">🥬</span>Leafy greens</summary>
+      <p class="food-info">Suitable rabbit-safe leafy greens can form part of the daily fresh-food portion. Introduce one new green at a time to check your rabbit tolerates it well.</p>
+    </details>
 
-    <div class="food-card">
-      <span class="emoji">🌿</span>
-      Herbs
-    </div>
+    <details class="food-card">
+      <summary><span class="emoji">🌿</span>Herbs</summary>
+      <p class="food-info">Fresh herbs such as basil, mint, parsley and coriander are generally well tolerated in small amounts and add variety to the fresh-food portion.</p>
+    </details>
 
-    <div class="food-card">
-      <span class="emoji">🍓</span>
-      Strawberries
-    </div>
+    <details class="food-card">
+      <summary><span class="emoji">🍓</span>Strawberries</summary>
+      <p class="food-info">A fruit, so treat as an occasional treat only, in small amounts, due to its natural sugar content.</p>
+    </details>
 
-    <div class="food-card">
-      <span class="emoji">🍌</span>
-      Banana
-    </div>
+    <details class="food-card">
+      <summary><span class="emoji">🍌</span>Banana</summary>
+      <p class="food-info">Higher in sugar than most fruits — an occasional treat only, in small amounts.</p>
+    </details>
 
-    <div class="food-card">
-      <span class="emoji">🌱</span>
-      Fresh grass
-    </div>
+    <details class="food-card">
+      <summary><span class="emoji">🌱</span>Fresh grass</summary>
+      <p class="food-info">Excellent — can form part of the hay/grass base of the diet. Introduce gradually if your rabbit isn't used to it, and never feed lawn mower clippings.</p>
+    </details>
 
   </div>
 
@@ -1048,26 +1160,35 @@
 
   </div>
 
-  <p class="section-text" style="margin-top:18px;">
-    We are building more detailed food-by-food rabbit care information, because
-    <strong>“Can rabbits eat...?”</strong> questions deserve a proper answer rather
-    than a simple yes or no.
+  <p class="source-note" style="margin-top:14px;">
+    Sources:
+    <a href="https://www.pdsa.org.uk/pet-help-and-advice/looking-after-your-pet/rabbits/feeding-your-rabbits"
+       target="_blank"
+       rel="noopener noreferrer">
+      PDSA — Feeding Your Rabbits
+    </a>
+    and
+    <a href="https://woodgreen.org.uk/pet-advice/rabbit/what-to-feed-your-rabbits/"
+       target="_blank"
+       rel="noopener noreferrer">
+      Woodgreen — What to Feed Your Rabbits
+    </a>, which also lists safe wild plants and forage.
   </p>
 
-</section>
+</div>
+</details>
 
 
 <!-- ==========================================================
      COMPANY
      ========================================================== -->
 
-<section class="section" id="company">
-
+<details class="accordion-section" id="company">
+<summary>
   <span class="seo-badge">RABBIT COMPANIONSHIP</span>
-
-  <h2 class="comic-heading">
-    Do Rabbits Need Another Rabbit?
-  </h2>
+  <h2 class="comic-heading">Do Rabbits Need Another Rabbit?</h2>
+</summary>
+<div class="accordion-body">
 
   <p class="section-text">
     <strong>Yes, rabbits are social animals.</strong> Welfare organisations recommend
@@ -1110,20 +1231,20 @@
     </a>.
   </p>
 
-</section>
+</div>
+</details>
 
 
 <!-- ==========================================================
      BEHAVIOUR
      ========================================================== -->
 
-<section class="section" id="behaviour">
-
+<details class="accordion-section" id="behaviour">
+<summary>
   <span class="seo-badge">RABBIT BEHAVIOUR</span>
-
-  <h2 class="comic-heading">
-    Rabbit Behaviour: What Does My Rabbit Mean?
-  </h2>
+  <h2 class="comic-heading">Rabbit Behaviour: What Does My Rabbit Mean?</h2>
+</summary>
+<div class="accordion-body">
 
   <p class="section-text">
     Rabbits communicate through body language, movement, sounds and behaviour.
@@ -1200,24 +1321,25 @@
     consider whether they could be unwell and contact your vet if concerned.
   </p>
 
-</section>
+</div>
+</details>
 
 
 <!-- ==========================================================
      HEALTH
      ========================================================== -->
 
-<section class="section" id="health">
-
+<details class="accordion-section" id="health">
+<summary>
   <span class="seo-badge">RABBIT HEALTH</span>
+  <h2 class="comic-heading" style="text-align:center;">Common Rabbit Health Problems</h2>
+</summary>
+<div class="accordion-body">
 
-  <h2 class="comic-heading" style="text-align:center;">
-    Common Rabbit Health Problems
-  </h2>
-
-  <p class="section-text" style="text-align:center;">
-    Rabbits can hide illness, so small changes can matter. Changes in appetite,
+  <p class="section-text" style="text-align:center;">Rabbits can hide illness, so small changes can matter. Changes in appetite,
     droppings, movement, posture, grooming or behaviour should be taken seriously.
+    Research from the Royal Veterinary College's VetCompass programme has found
+    flystrike and gut stasis among the leading causes of death in UK pet rabbits.
   </p>
 
 
@@ -1266,7 +1388,7 @@
 
         <p class="rabbit-facts">
           Flies can lay eggs on rabbits, particularly around dirty or damp fur.
-          The resulting maggots can cause severe tissue damage.
+          The resulting maggots can cause severe tissue damage very quickly.
         </p>
 
         <p class="rabbit-facts">
@@ -1394,20 +1516,40 @@
 
   </div>
 
-</section>
+  <p class="source-note" style="margin-top:14px;">
+    Sources:
+    <a href="https://www.rspca.org.uk/adviceandwelfare/pets/rabbits"
+       target="_blank"
+       rel="noopener noreferrer">
+      RSPCA — Rabbits
+    </a>,
+    <a href="https://www.pdsa.org.uk/pet-help-and-advice/looking-after-your-pet/rabbits/rabbit-health"
+       target="_blank"
+       rel="noopener noreferrer">
+      PDSA — Keeping Your Rabbit Healthy
+    </a>
+    and
+    <a href="https://woodgreen.org.uk/pet-advice/rabbit/how-long-do-rabbits-live-understanding-rabbit-lifespan/"
+       target="_blank"
+       rel="noopener noreferrer">
+      Woodgreen — Rabbit Lifespan &amp; Common Health Problems
+    </a>.
+  </p>
+
+</div>
+</details>
 
 
 <!-- ==========================================================
      VACCINATIONS
      ========================================================== -->
 
-<section class="section narrow" id="vaccinations">
-
+<details class="accordion-section" id="vaccinations">
+<summary>
   <span class="seo-badge">RABBIT VACCINATIONS UK</span>
-
-  <h2 class="comic-heading">
-    Rabbit Vaccinations in the UK
-  </h2>
+  <h2 class="comic-heading">Rabbit Vaccinations in the UK</h2>
+</summary>
+<div class="accordion-body">
 
   <p class="section-text">
     <strong>Rabbit vaccination is an important part of preventative healthcare.</strong>
@@ -1439,27 +1581,27 @@
 
   <p class="source-note">
     Source:
-    <a href="https://www.pdsa.org.uk/taking-care-of-your-pet/pet-health-hub/other-veterinary-advice/rabbit-vaccines"
+    <a href="https://www.pdsa.org.uk/pet-help-and-advice/pet-health-hub/other-veterinary-advice/rabbit-vaccines"
        target="_blank"
        rel="noopener noreferrer">
       PDSA — Rabbit Vaccines
     </a>.
   </p>
 
-</section>
+</div>
+</details>
 
 
 <!-- ==========================================================
      NEUTERING
      ========================================================== -->
 
-<section class="section narrow" id="neutering">
-
+<details class="accordion-section" id="neutering">
+<summary>
   <span class="seo-badge">RABBIT NEUTERING UK</span>
-
-  <h2 class="comic-heading">
-    Rabbit Neutering: Spaying &amp; Castration
-  </h2>
+  <h2 class="comic-heading">Rabbit Neutering: Spaying &amp; Castration</h2>
+</summary>
+<div class="accordion-body">
 
   <p class="section-text">
     <strong>Neutering is widely recommended for pet rabbits.</strong>
@@ -1508,11 +1650,12 @@
     </a>.
   </p>
 
-</section>
+</div>
+</details>
 
 
 <!-- ==========================================================
-     VET EMERGENCY
+     VET EMERGENCY — always visible, never collapsed
      ========================================================== -->
 
 <section class="section narrow" id="vet">
@@ -1587,13 +1730,12 @@
      HEALTH CHECKS
      ========================================================== -->
 
-<section class="section narrow" id="checks">
-
+<details class="accordion-section" id="checks">
+<summary>
   <span class="seo-badge">RABBIT HEALTH CHECK</span>
-
-  <h2 class="comic-heading">
-    Rabbit Health Checks
-  </h2>
+  <h2 class="comic-heading">Rabbit Health Checks</h2>
+</summary>
+<div class="accordion-body">
 
   <p class="section-text">
     Knowing what is normal for your rabbit is one of the best ways to spot changes.
@@ -1651,7 +1793,8 @@
     may therefore be needed even when the front teeth look normal.
   </p>
 
-</section>
+</div>
+</details>
 
 
 <!-- ==========================================================
@@ -1727,13 +1870,13 @@
 
         <p>
           RWAF recommends a single enclosed area of at least
-          <strong>3m × 2m × 1m high</strong> for two average-sized rabbits,
+          <strong>3m &times; 2m &times; 1m high</strong> for two average-sized rabbits,
           available continuously.
         </p>
 
         <p>
           A small hutch, even with an upper level, does not provide the equivalent
-          3m × 2m ground footprint.
+          3m &times; 2m ground footprint.
         </p>
 
       </div>
@@ -1998,6 +2141,17 @@
     </a>
 
 
+    <a href="https://www.rspca.org.uk/adviceandwelfare/pets/rabbits"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="bubble">
+        RSPCA Rabbit Advice
+      </div>
+
+    </a>
+
+
     <a href="https://www.pdsa.org.uk/pet-help-and-advice/looking-after-your-pet/rabbits"
        target="_blank"
        rel="noopener noreferrer">
@@ -2009,23 +2163,12 @@
     </a>
 
 
-    <a href="https://woodgreen.org.uk/pet-advice/rabbit/caring-for-rabbits/"
+    <a href="https://woodgreen.org.uk/pet-advice/rabbit/"
        target="_blank"
        rel="noopener noreferrer">
 
       <div class="bubble">
         Woodgreen Rabbit Advice
-      </div>
-
-    </a>
-
-
-    <a href="https://www.gov.uk/guidance/animal-welfare"
-       target="_blank"
-       rel="noopener noreferrer">
-
-      <div class="bubble">
-        GOV.UK Animal Welfare Guidance
       </div>
 
     </a>
@@ -2140,3 +2283,4 @@
 
 </body>
 </html>
+
